@@ -16,12 +16,18 @@ $json = file_get_contents($url, false, stream_context_create($opts));
 $obj = json_decode($json);
 $data = (array) $obj;
 
-echo "<pre>";
-var_dump($data);
-echo "</pre>";
+#echo "<pre>";
+#var_dump($data);
+#echo "</pre>";
 
 
-#$xml = json_decode(json_encode($data),true);
+$xml = json_decode(json_encode($data),true);
+for($i=0; $i<2; $i++)
+{
+	echo $xml["items"][$i]["git_url"];
+	echo "<br>" ;
+
+}
 #echo $xml["items"][0]["git_url"];
 #echo "<br>";
 #echo $xml["items"][1]["git_url"];
@@ -30,10 +36,6 @@ echo "</pre>";
 
 
 
-
-#foreach ($data->html_url as $git) { 
-#    echo $git->git_url; 
-#}
 
 
 
